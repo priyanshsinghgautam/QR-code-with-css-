@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR code generator</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            background-color: orange;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .box{
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+        }
+        input{
+            height: 50px;
+            width: 200px;
+        }
+        button{
+            height: 50px;
+            width: 200px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h2>QR code generator</h2>
+            <input type="text" id="input" placeholder="Enter URL or Text"><br><br>
+            <button onclick="search()">Generate</button><br><br>
+        </div>
+        <img src="" id="imgqr">
+    </div>
+    
+    <script>
+        let inputtext = document.getElementById("input");
+        let img = document.getElementById("imgqr");
+        function search(){
+            img.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + input.value;
+        }
+    </script>
+</body>
+</html>
